@@ -17,6 +17,11 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getPresenter().mainPresenterRun();
     }
 
@@ -27,8 +32,8 @@ public class MainActivity extends BaseActivity<MainView, MainPresenter> implemen
 
     // View Update //
     @Override
-    public void test() {
-        Log.w(TAG, "test: ");
-        Toast.makeText(this, "TEST Success!!!!", Toast.LENGTH_SHORT).show();
+    public void test(String result) {
+        Log.w(TAG, "test result: " + result);
+        Toast.makeText(this, "TEST Success!! result:: " + result, Toast.LENGTH_SHORT).show();
     }
 }

@@ -1,10 +1,8 @@
 package toru.io.my.advancedbviper.presenter;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 
 import toru.io.my.advancedbviper.interactor.AdvancedMvpInteractor;
-import toru.io.my.advancedbviper.interactor.BViperInteractor;
 import toru.io.my.advancedbviper.view.AdvancedMvpView;
 
 /**

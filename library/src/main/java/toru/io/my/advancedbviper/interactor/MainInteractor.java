@@ -11,11 +11,13 @@ public class MainInteractor extends BViperInteractor {
 
     public MainInteractor(){}
 
-    public void testInteracting(){
+    public String testInteracting(){
         Log.w(TAG, "testInteracting: time is coming to show.");
 
         // network call
         // fetching data
         // data to presenter
+
+        return "Successful interaction!!";
     }
 }

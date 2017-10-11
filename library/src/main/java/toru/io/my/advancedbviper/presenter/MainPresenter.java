@@ -24,6 +24,7 @@ public class MainPresenter extends BViperPresenter<MainView, MainInteractor> {
 
     public void mainPresenterRun(){
         Log.w(TAG, "mainPresenter run: test, command to interactor");
-        getInteractor().testInteracting();
+        Log.w(TAG, "mainPresenterRun: request result:: " + getInteractor().testInteracting());
+        getView().test(getInteractor().testInteracting());
     }
 }
