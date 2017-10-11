@@ -9,9 +9,8 @@ import toru.io.my.advancedbviper.view.AdvancedMvpView;
  */
 
 public interface AdvancedMvpPresenter<V extends AdvancedMvpView> {
-
-    void attachView(V view);
-    void detachView();
+    void attachViewToPresenter(V view);
+    void detachViewFromPresenter();
 
     // fundamental elements for handling lifecycle
     void onCreate(Bundle savedInstanceState);

@@ -5,5 +5,5 @@ package toru.io.my.advancedbviper.view;
  */
 
 public interface MainView extends AdvancedMvpView {
-    void test();
+    void test(String result);
 }
