@@ -2,6 +2,7 @@ package toru.io.my.advancedbviper.presenter;
 
 import android.util.Log;
 
+import toru.io.my.advancedbviper.interactor.MainInteractor;
 import toru.io.my.advancedbviper.view.MainView;
 
 /**
@@ -11,13 +12,17 @@ import toru.io.my.advancedbviper.view.MainView;
 public class MainPresenter extends BViperPresenter<MainView> {
     private static final String TAG = MainPresenter.class.getSimpleName();
 
+    public MainPresenter() {
+        setInteractor(new MainInteractor(this));
+    }
+
     @Override
-    public void attachView(MainView mainView) {
-        super.attachView(mainView);
+    public void attachViewToPresenter(MainView view) {
+        super.attachViewToPresenter(view);
     }
 
     public void mainPresenterRun(){
-        Log.w(TAG, "mainPresenter run: test" );
-        getView().test();
+        Log.w(TAG, "mainPresenter run: test, command to interactor");
+        ((MainInteractor)getInteractor()).testInteracting();
     }
 }

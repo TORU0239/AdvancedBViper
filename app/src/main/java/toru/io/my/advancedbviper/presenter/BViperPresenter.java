@@ -2,6 +2,7 @@ package toru.io.my.advancedbviper.presenter;
 
 import android.os.Bundle;
 
+import toru.io.my.advancedbviper.interactor.BViperInteractor;
 import toru.io.my.advancedbviper.view.AdvancedMvpView;
 
 /**
@@ -12,14 +13,15 @@ public abstract class BViperPresenter<V extends AdvancedMvpView> implements Adva
     private static final String TAG = BViperPresenter.class.getSimpleName();
 
     private V view;
+    private BViperInteractor interactor;
 
     @Override
-    public void attachView(V v) {
-        view = v;
+    public void attachViewToPresenter(V view) {
+        this.view = view;
     }
 
     @Override
-    public void detachView() {
+    public void detachViewFromPresenter() {
         view = null;
     }
 
@@ -35,7 +37,15 @@ public abstract class BViperPresenter<V extends AdvancedMvpView> implements Adva
     @Override
     public void onDestroy() {}
 
-    public V getView(){
+    V getView(){
         return view;
+    }
+
+    public BViperInteractor getInteractor(){
+        return interactor;
+    };
+
+    public void setInteractor(BViperInteractor interactor){
+        this.interactor = interactor;
     }
 }

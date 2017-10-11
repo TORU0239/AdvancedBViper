@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import toru.io.my.advancedbviper.interactor.MainInteractor;
 import toru.io.my.advancedbviper.presenter.MainPresenter;
 import toru.io.my.advancedbviper.view.MainView;
 
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         // Delegating this part to another class called Delegator //
         presenter = new MainPresenter();
-        presenter.attachView(this);
+        presenter.attachViewToPresenter(this);
         presenter.onCreate(savedInstanceState);
         presenter.mainPresenterRun();
     }
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onDestroy() {
         // Delegating this part to another class called Delegator //
-        presenter.detachView();
+        presenter.detachViewFromPresenter();
         presenter.onDestroy();
         super.onDestroy();
     }
