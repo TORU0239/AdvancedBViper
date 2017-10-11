@@ -1,40 +1,34 @@
 package toru.io.my.advancedbviper;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import toru.io.my.advancedbviper.interactor.MainInteractor;
 import toru.io.my.advancedbviper.presenter.MainPresenter;
+import toru.io.my.advancedbviper.presenter.PresenterDelegate;
 import toru.io.my.advancedbviper.view.MainView;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class MainActivity extends BaseActivity<MainView, MainPresenter> implements MainView {
     private static final String TAG = MainActivity.class.getSimpleName();
-
-    private MainPresenter presenter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        getPresenter().mainPresenterRun();
+    }
 
-        // Delegating this part to another class called Delegator //
-        presenter = new MainPresenter();
-        presenter.attachViewToPresenter(this);
-        presenter.onCreate(savedInstanceState);
-        presenter.mainPresenterRun();
+    @Override
+    public MainPresenter createPresenter() {
+        return new MainPresenter();
     }
 
     // View Update //
     @Override
     public void test() {
         Log.w(TAG, "test: ");
-    }
-
-    @Override
-    protected void onDestroy() {
-        // Delegating this part to another class called Delegator //
-        presenter.detachViewFromPresenter();
-        presenter.onDestroy();
-        super.onDestroy();
+        Toast.makeText(this, "TEST Success!!!!", Toast.LENGTH_SHORT).show();
     }
 }

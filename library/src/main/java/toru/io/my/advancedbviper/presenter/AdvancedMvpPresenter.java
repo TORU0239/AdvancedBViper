@@ -9,7 +9,6 @@ import toru.io.my.advancedbviper.view.AdvancedMvpView;
  */
 
 public interface AdvancedMvpPresenter<V extends AdvancedMvpView> {
-
     void attachViewToPresenter(V view);
     void detachViewFromPresenter();
 
